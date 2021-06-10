@@ -10,13 +10,15 @@ namespace CSharp_Labs.MenuItems
     {
         public override string Title { get { return "Recursion date"; } }
 
-        public override void Execute()
+        public override void Execute(IOUtils IOClass)
         {
-            IOUtils.WriteString("Enter two time Segments.");
-            IOUtils.WriteString("First Segment: ");
-            List<DateTime> aFirstSegment = IOUtils.ReadDataSegment();
-            IOUtils.WriteString("Second Segment: ");
-            List<DateTime> aSecondSegment = IOUtils.ReadDataSegment();
+            List<DateTime> aFirstSegment = null, aSecondSegment = null;
+            if (!IOClass.IsParsed)
+            {
+                IOUtils.WriteString("Enter two time Segments.");
+            }
+            aFirstSegment = IOClass.ReadDataSegment("First");
+            aSecondSegment = IOClass.ReadDataSegment("Second");
 
             int iDays = IntervalDaysInSegments(aFirstSegment, aSecondSegment);
             if (iDays > 4000)

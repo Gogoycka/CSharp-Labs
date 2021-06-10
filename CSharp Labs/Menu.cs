@@ -1,4 +1,5 @@
 ﻿using CSharp_Labs.MenuItems;
+using CSharp_Labs.Validation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,16 +29,23 @@ namespace CSharp_Labs
             Menu.MenuItems.Add(menuItem);
         }
 
-        public static void Execute()
+        public static void Execute(IOUtils IOClass)
         {
-            ShowMenu();
-            int iMenu = IOUtils.SafeReadInteger(null);
-            if (iMenu >= 0 && iMenu < Menu.MenuItems.Count)
+            if (!IOClass.IsParsed)
             {
-                Menu.MenuItems.ToArray()[iMenu].Execute();
+                ShowMenu();
+            }
+            int iMenu = IOClass.SafeReadInteger("Menu Item", null, true, true);
+            if (iMenu < Menu.MenuItems.Count)
+            {
+                Menu.MenuItems.ToArray()[iMenu].Execute(IOClass);
             }
             else
             {
+                if (IOClass.IsParsed)
+                {
+                    throw new ValidationException("Menu item not found.");
+                }
                 IOUtils.WriteString(string.Format("Menu item not found.{0}", Environment.NewLine));
             }
         }

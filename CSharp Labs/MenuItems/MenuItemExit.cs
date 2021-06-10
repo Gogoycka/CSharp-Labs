@@ -10,7 +10,7 @@ namespace CSharp_Labs.MenuItems
     {
         public override string Title { get { return "Exit"; } }
 
-        public override void Execute()
+        public override void Execute(IOUtils IOClass)
         {
             IOUtils.WriteString("Exit...");
             Environment.Exit(0);

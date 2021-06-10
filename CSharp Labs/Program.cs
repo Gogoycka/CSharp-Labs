@@ -1,4 +1,5 @@
 ﻿using CSharp_Labs.MenuItems;
+using CSharp_Labs.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,27 @@ namespace CSharp_Labs
             Menu.AddItem(new MenuItemRecursion());
             Menu.AddItem(new MenuItemStringsValidation());
 
-            while (true)
+            IOUtils IOClass = null;
+
+            try
             {
-                Menu.Execute();
+                IOClass = Parser.ParseArgs(args);
+            }
+            catch (ValidationException ex)
+            {
+                IOUtils.WriteString(ex.Message);
+            }
+
+            if (IOClass.IsParsed)
+            {
+                Menu.Execute(IOClass);
+            }
+            else
+            {
+                while (true)
+                {
+                    Menu.Execute(IOClass);
+                }
             }
         }
     }

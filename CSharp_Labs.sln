@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp Labs", "CSharp Labs\CSharp Labs.csproj", "{D2FC284B-3C5F-4AC7-B49B-13110FF42E2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Labs", "CSharp Labs\CSharp_Labs.csproj", "{D2FC284B-3C5F-4AC7-B49B-13110FF42E2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Labs", "Tests.Labs\Tests.Labs.csproj", "{91FD9135-7805-4EDF-9A65-3905F33797D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.CSharp_Labs", "Tests.Labs\Tests.CSharp_Labs.csproj", "{91FD9135-7805-4EDF-9A65-3905F33797D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

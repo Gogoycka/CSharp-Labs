@@ -9,12 +9,11 @@ namespace CSharp_Labs.MenuItems
     {
         public override string Title { get { return "Strings"; } }
 
-        public override void Execute() 
+        public override void Execute(IOUtils IOClass)
         {
-            IOUtils.WriteString("Enter first string:");
-            string FirstString = IOUtils.ReadString();
-            IOUtils.WriteString("Enter second string:");
-            string SecondString = IOUtils.ReadString();
+            string FirstString, SecondString;
+            FirstString = IOClass.ReadString("First string", "Enter first string:");
+            SecondString = IOClass.ReadString("Second string", "Enter second string:");
 
             CatchIsEqual(FirstString, SecondString);
             CatchIsEqualNormalized(FirstString, SecondString);
