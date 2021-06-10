@@ -19,7 +19,12 @@ namespace CSharp_Labs.MenuItems
             double y = IOUtils.SafeReadDouble(null, true);
             IOUtils.WriteString("Enter Z: ");
             double z = IOUtils.SafeReadDouble(null, false);
-            IOUtils.WriteString(string.Format("X/Z+Y^2 = {0:F3}{1}",  x/z + y*y, Environment.NewLine));
+            IOUtils.WriteString(string.Format("X/Z+Y^2 = {0:F3}{1}",  Calculate(x,y,z), Environment.NewLine));
+        }
+
+        public static double Calculate(double x, double y, double z)
+        {
+            return x / z + y * y;
         }
     }
 }

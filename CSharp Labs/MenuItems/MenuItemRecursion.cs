@@ -31,7 +31,7 @@ namespace CSharp_Labs.MenuItems
             }
         }
 
-        private static int IntervalDaysInSegments(List<DateTime> FirstSegment, List<DateTime> SecondSegment)
+        public static int IntervalDaysInSegments(List<DateTime> FirstSegment, List<DateTime> SecondSegment)
         {
             int iDays = 0;
 

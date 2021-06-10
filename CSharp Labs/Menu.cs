@@ -1,15 +1,22 @@
 ﻿using CSharp_Labs.MenuItems;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CSharp_Labs
 {
     public class Menu
     {
         private static List<MenuItemCore> MenuItems = new List<MenuItemCore>();
+
+        public static int ItemsCount
+        {
+            get
+            {
+                return MenuItems.Count;
+            }
+        }
 
         public static void ClearItems()
         {
